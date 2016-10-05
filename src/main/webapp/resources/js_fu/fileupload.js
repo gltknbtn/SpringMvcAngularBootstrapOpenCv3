@@ -10,7 +10,7 @@ app.controller("fileuploadController", function($scope, $http, $location) {
 	
 	$scope.continueFileUpload = function() {
 		$scope.showProgress = true;
-		var uploadUrl = "/uaiContacts/fileupload";
+		var uploadUrl = "/SpringMvcAngularBootstrapOpenCv3/fileupload";
 		var formData = new FormData();
   		formData.append("file", file.files[0]);
 		
@@ -30,6 +30,7 @@ app.controller("fileuploadController", function($scope, $http, $location) {
 				$scope.showImage = true;
 				$scope.parentBase64strWithRects = data;
 			}else{
+				$scope.showProgress = false;
 				alert("failed");
 			}
 		})

@@ -5,7 +5,7 @@ function contactsController($scope, $http) {
 
     $scope.lastAction = '';
 
-    $scope.url = "/uaiContacts/protected/contacts/";
+    $scope.url = "/SpringMvcAngularBootstrapOpenCv3/protected/contacts/";
 
     $scope.errorOnSubmit = false;
     $scope.errorIllegalAccess = false;

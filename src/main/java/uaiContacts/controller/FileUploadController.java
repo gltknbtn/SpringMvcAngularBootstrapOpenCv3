@@ -22,7 +22,6 @@ import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.objdetect.CascadeClassifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -58,7 +57,6 @@ public class FileUploadController {
 
 			Iterator<String> itr = mRequest.getFileNames();
 			
-			
 			while (itr.hasNext()) {
 				MultipartFile mFile = mRequest.getFile(itr.next());
 				ByteArrayInputStream bais = new ByteArrayInputStream(mFile.getBytes());
@@ -74,7 +72,7 @@ public class FileUploadController {
 		        Imgcodecs.imwrite(out, mat);
 		        
 				
-				CascadeClassifier faceDetector = new CascadeClassifier("/haarcascade_frontalface_alt.xml");
+				CascadeClassifier faceDetector = new CascadeClassifier(getClass().getResource("/haarcascade_frontalface_alt.xml").getPath().substring(1));
 		 
 		        MatOfRect faceDetections = new MatOfRect();
 		        faceDetector.detectMultiScale(mat, faceDetections);
@@ -96,6 +94,7 @@ public class FileUploadController {
 				System.out.println(fileName);
 				
 			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
