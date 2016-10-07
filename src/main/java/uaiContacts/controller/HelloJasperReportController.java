@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -38,6 +39,7 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.util.JRLoader;
 import uaiContacts.model.User;
+import uaiContacts.vo.Company;
 
 @Controller
 @RequestMapping(value = "/hellojasperreport")
@@ -60,9 +62,28 @@ public class HelloJasperReportController {
 			  user.setEmail("email"+i);
 			  userList.add(user);
 		}
+		  List<Company> companyList = new ArrayList<Company>();
 		  
+		  
+			  companyList.add(new Company("company 1", "catagoryName1", 5));
+			  companyList.add(new Company("company 1", "catagoryName2", 10));
+			  companyList.add(new Company("company 1", "catagoryName3", 15));
+		  
+			  
+			  companyList.add(new Company("company 2", "catagoryName1", 20));
+			  companyList.add(new Company("company 2", "catagoryName2", 25));
+			  companyList.add(new Company("company 2", "catagoryName3", 30));
+			  
+			  
+			  companyList.add(new Company("company 3", "catagoryName1", 35));
+			  companyList.add(new Company("company 3", "catagoryName2", 40));
+			  companyList.add(new Company("company 3", "catagoryName3", 45));
+			  
 		  JRBeanCollectionDataSource ds1 = new  JRBeanCollectionDataSource(userList);
 		  params.put("ds1", ds1);
+		  
+		  JRBeanCollectionDataSource ds2 = new  JRBeanCollectionDataSource(companyList);
+		  params.put("ds2", ds2);
 		
 		
 		JasperReport jasperReport = (JasperReport) JRLoader.loadObject(jasperStream);
@@ -102,8 +123,28 @@ public class HelloJasperReportController {
 		  userList.add(user);
 	}
 	  
+	  List<Company> companyList = new ArrayList<Company>();
+	  
+	  
+	  companyList.add(new Company("company 1", "catagoryName1", 5));
+	  companyList.add(new Company("company 1", "catagoryName2", 10));
+	  companyList.add(new Company("company 1", "catagoryName3", 15));
+  
+	  
+	  companyList.add(new Company("company 2", "catagoryName1", 20));
+	  companyList.add(new Company("company 2", "catagoryName2", 25));
+	  companyList.add(new Company("company 2", "catagoryName3", 30));
+	  
+	  
+	  companyList.add(new Company("company 3", "catagoryName1", 35));
+	  companyList.add(new Company("company 3", "catagoryName2", 40));
+	  companyList.add(new Company("company 3", "catagoryName3", 45));
+	  
 	  JRBeanCollectionDataSource ds1 = new  JRBeanCollectionDataSource(userList);
 	  parameterMap.put("ds1", ds1);
+	  
+	  JRBeanCollectionDataSource ds2 = new  JRBeanCollectionDataSource(companyList);
+	  parameterMap.put("ds2", ds2);
 		
 	  parameterMap.put("datasource", new JREmptyDataSource());
 	  modelAndView = new ModelAndView(helloReport, parameterMap);
