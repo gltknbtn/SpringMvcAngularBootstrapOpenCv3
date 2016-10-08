@@ -260,10 +260,24 @@
 			<artifactId>jasperreports</artifactId>
 			<version>${jasper.version}</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports-fonts -->
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports-fonts</artifactId>
+			<version>6.0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>gltknbtnfont</groupId>
+			<artifactId>gltknbtnfont</artifactId>
+			<version>1.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<properties>
-		<jasper.version>5.5.0</jasper.version>
+		<jasper.version>6.1.0</jasper.version>
 	</properties>
 
 </project>
